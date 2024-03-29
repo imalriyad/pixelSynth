@@ -1,4 +1,17 @@
+
+import { useState } from "react";
+
 const Header = () => {
+  const [prompt, setPrompt] = useState("");
+  const [quantity, setQuantity] = useState(4);
+
+  console.log(prompt, quantity);
+
+  // Handle Generate
+  const handleImageGeneration = async () => {
+    
+  };
+
   return (
     <>
       <div
@@ -23,13 +36,18 @@ const Header = () => {
               {/* Input field for getting prompt */}
               <input
                 type="text"
+                onChange={(e) => setPrompt(e.target.value)}
                 placeholder="Describe what you want generate . . ."
                 className="input rounded-full md:input-md input-sm md:placeholder:text-sm placeholder:text-xs pl-4 md:pl-6 text-black w-full "
               />
 
               <span className="md:absolute top-0 right-0 flex flex-col">
                 {/* Select image quantity */}
-                <select className="select-xs md:select-md md:rounded-none rounded-full select md:absolute select-bordered md:right-24 md:mt-0 mt-1 md:mb-0 mb-4  focus:outline-none text-black ">
+                <select
+                  onChange={(e) => setQuantity(parseInt(e.target.value))}
+                  value={quantity}
+                  className="select-xs md:select-md md:rounded-none rounded-full select md:absolute select-bordered md:right-24 md:mt-0 mt-1 md:mb-0 mb-4  focus:outline-none text-black "
+                >
                   <option value={6}>6 Images</option>
                   <option value={5}>5 Images</option>
                   <option value={4} selected>
@@ -40,7 +58,10 @@ const Header = () => {
                 </select>
 
                 {/* Genarte button */}
-                <button className="btn md:btn-md btn-sm md:absolute right-0 btn-primary md:rounded-r-full rounded-full md:rounded-none">
+                <button
+                  onClick={handleImageGeneration}
+                  className="btn md:btn-md btn-sm md:absolute right-0 btn-primary md:rounded-r-full rounded-full md:rounded-none"
+                >
                   Generate
                 </button>
               </span>

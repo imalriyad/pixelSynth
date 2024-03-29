@@ -5,7 +5,7 @@ const Card = () => {
   const loading = true;
 
   return (
-    <div className={loading ? "bg-slate-200 border rounded-md" : ""}>
+    <div className={loading ? "bg-[#ecf0f1] rounded-md" : ""}>
       <img
         src={loading ? loader : img1}
         alt="genarated image"
